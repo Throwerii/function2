@@ -9,55 +9,36 @@ let power = document.querySelector("#exp")
 let factorButton = document.querySelector("#factor")
 let act = document.querySelector("#fact")
 
-const one=parseInt(firstNumber.value)
-const two=parseInt(secondNumber.value)
+const a=parseInt(firstNumber.value)
+const b=parseInt(secondNumber.value)
 
 function add(a,b){
     return a+b
 }
-
+// for(loop b number of times){total = add(total, a)}
 function multiply(a,b){
-    var currentNumber=one
-    for(let i=2;i<=two;i+=1){
-        let newNumber= add(one,currentNumber)
-        currentNumber=newNumber
+    let multiP=0
+for(let i=1;i<=b;i+=1){
+        multiP=add(multiP,a)
     }
-    return currentNumber
+    return multiP
 }
 
 function exp(a,b){
-    let Number=one
-    console.log(Number)
-    for(let i=1;i<=two;i+=1){
-        var newNumber= multiply(one,Number)
-        Number=newNumber
-        console.log(newNumber,Number,i)
+    let xPon=1
+    for(let i=1;i<=b;i+=1){
+         xPon= multiply(xPon,a)
+        
     }
-    return Number
-    
-    function factor(a,b){
-        var currentNumber=one
-        for(let i=1;i<=two;i+=1){
-            let n=currentNumber-1
-            console.log(n)
-            let newNumber=multiply(currentNumber,n)
-            currentNumber=newNumber
-            console.log(newNumber,currentNumber,i,n)
-        }
-        return currentNumber
-    }
+    return xPon
 }    
 
 function factor(a,b){
-        var currentNumber=one
-        for(let i=1;i<=two;i+=1){
-            let n=currentNumber-1
-            console.log(n)
-            let newNumber=multiply(currentNumber,n)
-            currentNumber=newNumber
-            console.log(newNumber,currentNumber,i,n)
+        let fact=1
+        for(let i=1;i<=a;i+=1){
+            fact=multiply(fact,i)
         }
-        return currentNumber
+        return fact
     }
 addButton.addEventListener("click", function(){
     const one=parseInt(firstNumber.value)
@@ -77,11 +58,15 @@ powerButton.addEventListener("click",function(){
     const one=parseInt(firstNumber.value)
     const two=parseInt(secondNumber.value)
     console.log("POOOOWWWEEERRRR!!!! button clicked")
+    console.log(exp(one,two))
     power.innerHTML=exp(one,two)
+
 })
 factorButton.addEventListener("click",function(){
     const one=parseInt(firstNumber.value)
     const two=parseInt(secondNumber.value)
 console.log("That's a foct")
+console.log(factor(one,two))
+
     act.innerHTML=factor(one,two)
 })
